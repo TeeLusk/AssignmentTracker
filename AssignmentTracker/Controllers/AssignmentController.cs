@@ -7,23 +7,20 @@ using Microsoft.Extensions.Logging;
 
 namespace AssignmentTracker.Controllers
 {
-    public class AssignmentController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AssignmentController : ControllerBase
     {
-        [ApiController]
-        [Route("[controller]")]
-        public class AssignmentsController : ControllerBase
+        private readonly AssignmentController _assignmentService;
+
+        public AssignmentController(AssignmentController assignmentService)
         {
-            private readonly AssignmentsController _assignmentService;
-
-            public AssignmentsController(AssignmentsController assignmentService)
-            {
-                _assignmentService = assignmentService;
-            }
-
-            [HttpGet]
-            public ActionResult<List<Assignment>> Get() =>
-                _assignmentService.Get();
-            
+            _assignmentService = assignmentService;
         }
+
+        [HttpGet]
+        public ActionResult<List<Assignment>> Get() =>
+            _assignmentService.Get();
+        
     }
 }
