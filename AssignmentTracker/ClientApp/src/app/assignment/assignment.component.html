@@ -1,0 +1,16 @@
+<p>assignment works!</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Date</th>
+    <th>Title</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let assign of assignments">
+    <td>{{ assign.date }}</td>
+    <td>{{ assign.title }}</td>
+  </tr>
+  </tbody>
+</table>
