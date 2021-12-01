@@ -1,16 +1,18 @@
-<p>assignment works!</p>
-
 <table>
   <thead>
   <tr>
-    <th>Date</th>
-    <th>Title</th>
+    <th>Couse</th>
+    <th>Assignment Name</th>
+    <th>Due Date</th>
+    <th>Completed?</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let assign of assignments">
-    <td>{{ assign.date }}</td>
-    <td>{{ assign.title }}</td>
+    <td>{{ assign.course }}</td>
+    <td>{{ assign.name }}</td>
+    <td>{{ assign.dueDate | date }}</td>
+    <td>{{ assign.completed }}</td>
   </tr>
   </tbody>
 </table>
