@@ -11,15 +11,13 @@ export class AssignmentComponent {
   public assignments: Assignment[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Assignment[]>(baseUrl + 'assignment')
+    http.get<Assignment[]>('https://localhost:5001/api/assignment')
       .subscribe(
         result => {
           this.assignments = result;
+          console.log(result);
         }, err => console.error(err));
   }
-
-
-
 }
 
 interface Assignment {
