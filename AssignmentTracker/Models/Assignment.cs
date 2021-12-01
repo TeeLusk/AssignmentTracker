@@ -11,9 +11,9 @@ namespace AssignmentTracker.Models
         public string AssignmentId { get; set; }
 
         [BsonElement("Name")]
-        public string AssignmentTitle { get; set; }
-        
-        public string AssignmentNotes { get; set; }
+        public string Name { get; set; }
+        public string Course { get; set; }
+        public string Notes { get; set; }
 
         public DateTime DueDate { get; set; }
 

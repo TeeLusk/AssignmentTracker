@@ -10,12 +10,12 @@ namespace AssignmentTracker.Services
     {
         private readonly IMongoCollection<Assignment> _assignments;
 
-        public AssignmentService(AssignmentDatabaseSettings settings)
+        public AssignmentService(IAssignmentDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _assignments = database.GetCollection<Assignment>(settings.AssignmentCollectionName);
+            _assignments = database.GetCollection<Assignment>(settings.AssignmentsCollectionName);
         }
 
         public List<Assignment> Get() =>

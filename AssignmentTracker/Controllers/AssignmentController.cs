@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using AssignmentTracker.Models;
-using DnsClient.Internal;
+using AssignmentTracker.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace AssignmentTracker.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class AssignmentController : ControllerBase
     {
-        private readonly AssignmentController _assignmentService;
+        private readonly AssignmentService _assignmentService;
 
-        public AssignmentController(AssignmentController assignmentService)
+        public AssignmentController(AssignmentService assignmentService)
         {
             _assignmentService = assignmentService;
         }
@@ -21,6 +19,56 @@ namespace AssignmentTracker.Controllers
         [HttpGet]
         public ActionResult<List<Assignment>> Get() =>
             _assignmentService.Get();
-        
+
+        [HttpGet("{id:length(24)}", Name = "GetAssignment")]
+        public ActionResult<Assignment> Get(string id)
+        {
+            var assignment = _assignmentService.Get(id);
+
+            if (assignment == null)
+            {
+                return NotFound();
+            }
+
+            return assignment;
+        }
+
+        [HttpPost]
+        public ActionResult<Assignment> Create(Assignment assignment)
+        {
+            _assignmentService.Create(assignment);
+
+            return CreatedAtRoute("GetAssignment", new { id = assignment.AssignmentId.ToString() }, assignment);
+        }
+
+        [HttpPut("{id:length(24)}")]
+        public IActionResult Update(string id, Assignment assignmentIn)
+        {
+            var assignment = _assignmentService.Get(id);
+
+            if (assignment == null)
+            {
+                return NotFound();
+            }
+
+            _assignmentService.Update(id, assignmentIn);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id:length(24)}")]
+        public IActionResult Delete(string id)
+        {
+            var assignment = _assignmentService.Get(id);
+
+            if (assignment == null)
+            {
+                return NotFound();
+            }
+
+            _assignmentService.Remove(assignment.AssignmentId);
+
+            return NoContent();
+        }
     }
 }
