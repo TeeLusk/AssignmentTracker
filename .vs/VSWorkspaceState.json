@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\AssignmentTracker",
+    "\\AssignmentTracker\\ClientApp",
     "\\AssignmentTracker\\Controllers",
     "\\AssignmentTracker\\Models",
     "\\AssignmentTracker\\Services"
   ],
-  "SelectedNode": "\\AssignmentTracker\\Services\\AssignmentService.cs",
+  "SelectedNode": "\\AssignmentTracker.sln",
   "PreviewInSolutionExplorer": false
 }

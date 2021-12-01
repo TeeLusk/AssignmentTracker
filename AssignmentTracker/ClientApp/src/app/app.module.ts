@@ -27,7 +27,6 @@ import { AssignmentComponent } from './assignment/assignment.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'assignment', component: AssignmentComponent}
     ])
   ],

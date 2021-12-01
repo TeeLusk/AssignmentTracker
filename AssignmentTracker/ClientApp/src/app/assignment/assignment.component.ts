@@ -11,7 +11,7 @@ export class AssignmentComponent {
   public assignments: Assignment[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Assignment[]>('https://localhost:5001/api/assignment')
+    http.get<Assignment[]>('https://localhost:44314/api/assignment')
       .subscribe(
         result => {
           this.assignments = result;
@@ -21,6 +21,9 @@ export class AssignmentComponent {
 }
 
 interface Assignment {
-  date: string;
-  title: string;
+  name: string;
+  course: string;
+  notes: string;
+  dueDate: string;
+  completed: boolean;
 }
