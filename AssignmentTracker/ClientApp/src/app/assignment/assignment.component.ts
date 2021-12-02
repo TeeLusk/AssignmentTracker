@@ -11,7 +11,7 @@ export class AssignmentComponent {
   public assignments: Assignment[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Assignment[]>('https://localhost:44314/api/assignment')
+    http.get<Assignment[]>('https://localhost:44314/api/assignments')
       .subscribe(
         result => {
           this.assignments = result;

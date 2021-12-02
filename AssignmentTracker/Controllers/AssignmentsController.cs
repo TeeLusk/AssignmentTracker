@@ -7,11 +7,11 @@ namespace AssignmentTracker.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AssignmentController : ControllerBase
+    public class AssignmentsController : ControllerBase
     {
         private readonly AssignmentService _assignmentService;
 
-        public AssignmentController(AssignmentService assignmentService)
+        public AssignmentsController(AssignmentService assignmentService)
         {
             _assignmentService = assignmentService;
         }
