@@ -1,29 +1,30 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { Component, Inject, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { AssignmentService } from './assignment.service';
+import { Assignment } from '../models/assignment.model';
 
 @Component({
   selector: 'app-assignment',
   templateUrl: './assignment.component.html',
   styleUrls: ['./assignment.component.css']
 })
-export class AssignmentComponent {
+export class AssignmentComponent implements OnInit {
 
-  public assignments: Assignment[];
+  private subscription: Subscription;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Assignment[]>('https://localhost:44314/api/assignment')
-      .subscribe(
-        result => {
-          this.assignments = result;
-          console.log(result);
-        }, err => console.error(err));
+  assignments: Assignment[];
+
+  constructor(private assignmentService: AssignmentService) {
   }
-}
 
-interface Assignment {
-  name: string;
-  course: string;
-  notes: string;
-  dueDate: string;
-  completed: boolean;
+  ngOnInit() {
+    this.subscription = this.assignmentService.assignmentListChangedEvent
+      .subscribe(
+      (assignments : Assignment[]) => {
+        this.assignments = assignments;
+      });
+      this.assignmentService.getAssignments();
+  }
+
 }
