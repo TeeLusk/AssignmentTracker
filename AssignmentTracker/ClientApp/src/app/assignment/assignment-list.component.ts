@@ -6,10 +6,10 @@ import { Assignment } from '../models/assignment.model';
 
 @Component({
   selector: 'app-assignment',
-  templateUrl: './assignment.component.html',
-  styleUrls: ['./assignment.component.css']
+  templateUrl: './assignment-list.component.html',
+  styleUrls: ['./assignment-list.component.css']
 })
-export class AssignmentComponent implements OnInit {
+export class AssignmentListComponent implements OnInit {
 
   private subscription: Subscription;
 

@@ -21,7 +21,7 @@ export class AssignmentService {
 
   }
   getAssignments() {
-    this.http.get<Assignment[]>(this.url)
+    return this.http.get<Assignment[]>(this.url)
       .subscribe(
         result => {
           this.assignments = result;
@@ -31,7 +31,7 @@ export class AssignmentService {
   }
 
   getAssignment(id: number) {
-    this.http.get<Assignment>('${this.url}/${id}')
+    return this.http.get<Assignment>('${this.url}/${id}')
       .subscribe(
         result => {
           this.assignment = result;
@@ -41,15 +41,27 @@ export class AssignmentService {
   }
 
   createAssignment(assignment: Assignment) {
-
+    return this.http.post<Assignment>(this.url, assignment)
+      .subscribe(
+        result => {
+          console.log(result);
+        }, err => console.error(err));
   }
 
   updateAssignment(assignment: Assignment) {
-
+    return this.http.put<Assignment>(this.url, assignment)
+      .subscribe(
+        result => {
+          console.log(result);
+        }, err => console.error(err));
   }
 
-  deleteAssignment(assignment: Assignment) {
-
+  deleteAssignment(id: number) {
+    return this.http.delete('${this.url}/${id}')
+      .subscribe(
+        result => {
+          console.log(result);
+        }, err => console.error(err));
   }
 
 }
