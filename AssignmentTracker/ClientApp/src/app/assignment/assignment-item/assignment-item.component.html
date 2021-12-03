@@ -1,1 +1,9 @@
-<p>assignment-item works!</p>
+<div class="card border-primary" style="width: 18rem;" *ngIf="assignment" style="cursor: pointer;"
+    [routerLink]="[assignment.assignmentId]" routerLinkActive="active">
+    <div class="card-body">
+        <p class="card-title mb-2 text-primary">{{ assignment.name }}</p>
+        <p class="card-subtitle mb-2 text-muted">{{ assignment.course }}</p>
+        <p class="card-subtitle mb-2 text-muted">Due: {{ assignment.dueDate | date }}</p>
+        <p class="card-text mb-2">{{ assignment.notes }}</p>
+    </div>
+</div>

@@ -4,9 +4,18 @@
 
 <p *ngIf="!assignments"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="assignments">
-  <ul style="list-style-type: none;">
-    <li *ngFor="let assignment of assignments" style="padding-bottom: 5px;">
-      <app-assignment-detail [assignment]="assignment"></app-assignment-detail>
-    </li>
-</ul>
+<button class="btn btn-primary" [routerLink]="['new-assignment']">New Assignment</button>
+<hr>
+
+<div class="row">
+  <div class="col-md-5">
+    <ul style="list-style-type: none;" *ngIf="assignments">
+      <li *ngFor="let assignment of assignments" style="padding-bottom: 5px;">
+        <app-assignment-item [assignment]="assignment"></app-assignment-item>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-7">
+    <router-outlet></router-outlet>
+  </div>
+</div>

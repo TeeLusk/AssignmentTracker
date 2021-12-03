@@ -1,0 +1,10 @@
+.card:hover {
+    background-color: var(--primary);
+    color: white;
+    outline: gray;
+}
+
+.card:active {
+    background-color: var(--primary);
+    color: white;
+}

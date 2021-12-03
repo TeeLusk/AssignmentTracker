@@ -1,9 +1,10 @@
 <header>
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3"
-  >
+    class="navbar navbar-expand-sm navbar-toggleable-sm text-light bg-primary border-bottom box-shadow">
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/assignment']">AssignmentTracker</a>
+      <img src="../../assets/images/planner.png" style="height: 35px;">
+      <a class="navbar-brand" [routerLink]="['/assignments']" style="color: white;">
+         AssignmentTracker</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -22,13 +23,11 @@
         <ul class="navbar-nav flex-grow">
           <li
             class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
           >
             <a class="nav-link text-light" [routerLink]="['/']">Home</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-light" [routerLink]="['/assignment']"
+          <li class="nav-item">
+            <a class="nav-link text-light" [routerLink]="['/assignments']"
             >Assignments</a
             >
           </li>

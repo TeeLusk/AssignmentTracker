@@ -1,4 +1,4 @@
-<h3>Assignment Details</h3>
+<h3>New Assignment</h3>
 
 <form>
 
@@ -7,26 +7,26 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Name</span>
         </div>
-        <input class="form-control" value="{{ assignment.name}}" disabled />
+        <input class="form-control" value="{{ assignment.name}}" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Course</span>
         </div>
-        <input class="form-control" value="{{ assignment.course}}" disabled />
+        <input class="form-control" value="{{ assignment.course}}" />
 
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Due Date</span>
         </div>
-        <input class="form-control" value="{{ assignment.dueDate}}" disabled />
+        <input class="form-control" value="{{ assignment.dueDate}}" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Notes</span>
         </div>
-        <textarea class="form-control" disabled>{{ assignment.notes }}</textarea>
+        <textarea class="form-control">{{ assignment.notes }}</textarea>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -34,13 +34,11 @@
         </div>
         <div class="input-group-prepend">
             <div class="input-group-text">
-                <input type="checkbox" [checked]="assignment.completed" disabled>
+                <input type="checkbox" [checked]="assignment.completed">
             </div>
         </div>
     </div>
 
-    <div class="btn-group" role="group" aria-label="Options">
-        <button type="button" class="btn btn-warning" [routerLink]="[assignment.assignmentId, '/edit']">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-    </div>
+    <button type="button" class="btn btn-success" form="submit" [routerLink]="[assignment.assignmentId, '/edit']">Create</button>
+
 </form>

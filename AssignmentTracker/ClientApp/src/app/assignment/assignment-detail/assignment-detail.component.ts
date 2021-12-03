@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { Assignment } from 'src/app/models/assignment.model';
 

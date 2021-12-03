@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { AssignmentListComponent } from './assignment/assignment-list.component';
 import { AssignmentItemComponent } from './assignment/assignment-item/assignment-item.component';
 import { AssignmentDetailComponent } from './assignment/assignment-detail/assignment-detail.component';
+import { FooterComponent } from './footer/footer.component';
+import { state } from '@angular/animations';
+import { AssignmentCreateComponent } from './assignment/assignment-create/assignment-create.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { AssignmentDetailComponent } from './assignment/assignment-detail/assign
     HomeComponent,
     AssignmentListComponent,
     AssignmentItemComponent,
-    AssignmentDetailComponent
+    AssignmentDetailComponent,
+    FooterComponent,
+    AssignmentCreateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -26,7 +31,11 @@ import { AssignmentDetailComponent } from './assignment/assignment-detail/assign
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'assignment', component: AssignmentListComponent}
+      { path: 'assignments', component: AssignmentListComponent, children: [
+        { path: 'new-assignment', component: AssignmentCreateComponent},
+        { path: ':id', component: AssignmentDetailComponent},
+        { path: ':id/edit', component: AssignmentDetailComponent},
+      ]}
     ])
   ],
   providers: [],
