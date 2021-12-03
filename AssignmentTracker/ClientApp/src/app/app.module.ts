@@ -9,6 +9,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { AssignmentComponent } from './assignment/assignment.component';
+import { AssignmentItemComponent } from './assignment/assignment-item/assignment-item.component';
+import { AssignmentDetailComponent } from './assignment/assignment-detail/assignment-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AssignmentComponent } from './assignment/assignment.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    AssignmentComponent
+    AssignmentComponent,
+    AssignmentItemComponent,
+    AssignmentDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
