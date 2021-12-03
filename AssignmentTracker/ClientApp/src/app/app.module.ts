@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { AssignmentListComponent } from './assignment/assignment-list.component';
 import { AssignmentItemComponent } from './assignment/assignment-item/assignment-item.component';
 import { AssignmentDetailComponent } from './assignment/assignment-detail/assignment-detail.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HomeComponent,
     AssignmentListComponent,
     AssignmentItemComponent,
-    AssignmentDetailComponent,
-    SidebarComponent
+    AssignmentDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

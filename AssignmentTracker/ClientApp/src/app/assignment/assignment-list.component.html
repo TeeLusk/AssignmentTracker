@@ -1,26 +1,12 @@
-<h1 id="tableLabel">Assignment Fetcher</h1>
+<h1 id="tableLabel">Your Assignments</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>View and manage all of your assignments here.</p>
 
 <p *ngIf="!assignments"><em>Loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="assignments">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Course</th>
-      <th>Notes</th>
-      <th>Due Date</th>
-      <th>Completed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let assignment of assignments">
-      <td>{{ assignment.name }}</td>
-      <td>{{ assignment.course }}</td>
-      <td>{{ assignment.notes }}</td>
-      <td>{{ assignment.dueDate | date }}</td>
-      <td>{{ assignment.completed }}</td>
-    </tr>
-  </tbody>
-</table>
+  <ul style="list-style-type: none;">
+    <li *ngFor="let assignment of assignments" style="padding-bottom: 5px;">
+      <app-assignment-detail [assignment]="assignment"></app-assignment-detail>
+    </li>
+</ul>

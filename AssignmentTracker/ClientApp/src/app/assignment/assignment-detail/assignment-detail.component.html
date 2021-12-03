@@ -1,1 +1,10 @@
-<p>assignment-detail works!</p>
+<div class="card w-50 text-white bg-dark rounded">
+    <div class="card-body">
+      <h5 class="card-title text-primary">{{ assignment.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-success">Due: {{ assignment.course }}</h6>
+      <h6 class="card-subtitle mb-2 text-warning">{{ assignment.dueDate | date }}</h6>
+      <p class="card-text">{{ assignment.notes }}</p>
+      <a href="#" class="btn btn-success">Edit</a>
+      <a href="#" class="btn btn-warning">Delete</a>
+    </div>
+</div>
