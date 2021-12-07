@@ -40,4 +40,8 @@ export class AssignmentDetailComponent implements OnInit {
 
   }
 
+  toggleEdit() {
+    this.editMode = !this.editMode;
+  }
+
 }

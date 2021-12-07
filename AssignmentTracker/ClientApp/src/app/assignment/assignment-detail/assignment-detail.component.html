@@ -7,26 +7,26 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Name</span>
         </div>
-        <input class="form-control" [ngModel]="assignment?.name" name="name" #name=ngModel disabled />
+        <input class="form-control" [ngModel]="assignment?.name" name="name" #name=ngModel [disabled]="!editMode" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Course</span>
         </div>
-        <input class="form-control" [ngModel]="assignment?.course" name="course" disabled />
+        <input class="form-control" [ngModel]="assignment?.course" name="course" [disabled]="!editMode" />
 
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Due Date</span>
         </div>
-        <input class="form-control" [ngModel]="assignment?.dueDate" name="dueDate" disabled />
+        <input class="form-control" [ngModel]="assignment?.dueDate" name="dueDate" [disabled]="!editMode" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Notes</span>
         </div>
-        <textarea class="form-control" [ngModel]="assignment?.notes" name="notes" disabled></textarea>
+        <textarea class="form-control" [ngModel]="assignment?.notes" name="notes" [disabled]="!editMode"></textarea>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -34,13 +34,16 @@
         </div>
         <div class="input-group-prepend">
             <div class="input-group-text">
-                <input type="checkbox" [ngModel]="assignment?.completed" name="completed" disabled>
+                <input type="checkbox" [ngModel]="assignment?.completed" name="completed" [disabled]="!editMode">
+                <span>{{this.editMode}}</span>
             </div>
         </div>
     </div>
 
-    <div class="btn-group" role="group" aria-label="Options">
-        <button type="button" class="btn btn-warning" [routerLink]="[assignment.assignmentId, '/edit']">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-    </div>
 </form>
+
+<div class="btn-group" role="group" aria-label="Options">
+  <button type="button" class="btn btn-warning" (click)=toggleEdit() [hidden]="!editMode">Edit</button>
+
+  <button type="button" class="btn btn-danger">Delete</button>
+</div>
