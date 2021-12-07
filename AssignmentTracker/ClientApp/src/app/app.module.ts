@@ -11,7 +11,6 @@ import { AssignmentListComponent } from './assignment/assignment-list.component'
 import { AssignmentItemComponent } from './assignment/assignment-item/assignment-item.component';
 import { AssignmentDetailComponent } from './assignment/assignment-detail/assignment-detail.component';
 import { FooterComponent } from './footer/footer.component';
-import { state } from '@angular/animations';
 import { AssignmentCreateComponent } from './assignment/assignment-create/assignment-create.component';
 
 @NgModule({
@@ -34,8 +33,8 @@ import { AssignmentCreateComponent } from './assignment/assignment-create/assign
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'assignments', component: AssignmentListComponent, children: [
         { path: 'new-assignment', component: AssignmentCreateComponent},
-        { path: ':id', component: AssignmentDetailComponent},
         { path: ':id/edit', component: AssignmentDetailComponent},
+        { path: ':id', component: AssignmentDetailComponent},
       ]}
     ])
   ],

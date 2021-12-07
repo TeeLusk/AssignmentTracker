@@ -14,3 +14,9 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+body {
+  height:100vh;
+  width: 100vw;
+  overflow: auto;
+}

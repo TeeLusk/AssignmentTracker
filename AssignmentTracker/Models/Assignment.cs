@@ -16,7 +16,7 @@ namespace AssignmentTracker.Models
         public string Notes { get; set; }
 
         [BsonElement("dueDate")]
-        public string DueDate { get; set; }
+        public DateTime DueDate { get; set; }
 
         public bool Completed { get; set; }
         

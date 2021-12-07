@@ -12,6 +12,8 @@ import { AssignmentService } from '../assignment.service';
 export class AssignmentCreateComponent implements OnInit {
   assignment: Assignment;
 
+  submitted: boolean = false;
+
   assignmentForm = this.formBuilder.group({
     name: ['', Validators.required],
     course: ['', Validators.required],
@@ -32,6 +34,8 @@ export class AssignmentCreateComponent implements OnInit {
     
     console.log(this.assignmentForm.value);
     this.assignmentService.createAssignment(this.assignmentForm.value);
+
+    this.submitted = true;
   }
 
 }

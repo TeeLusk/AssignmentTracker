@@ -20,7 +20,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Due Date</span>
         </div>
-        <input class="form-control" id="dueDate" formControlName="dueDate" />
+        <input class="form-control" type="date" id="dueDate" formControlName="dueDate" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -39,6 +39,6 @@
         </div>
     </div>
     
-    <button type="button" class="btn btn-success" type="submit" [disabled]="!assignmentForm.valid">Create</button>
+    <button type="button" class="btn btn-success" type="submit" [disabled]="!assignmentForm.valid || submitted">Create</button>
 
 </form>
