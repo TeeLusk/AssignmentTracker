@@ -1,13 +1,13 @@
 <h3>Assignment Details</h3>
 
-<form>
+<form id="assignment-detail" (ngSubmit)="onSubmit(f)" #f="ngForm">
 
     <div class="text-danger"></div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Name</span>
         </div>
-        <input class="form-control" value="{{ assignment.name}}" disabled />
+        <input class="form-control" [ngModel]="assignment.name" name="name" #name=ngModel disabled />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">

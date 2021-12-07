@@ -21,7 +21,7 @@ export class AssignmentCreateComponent implements OnInit {
     notes: [''],
     completed: ['']
   });
-  
+
   constructor(private assignmentService: AssignmentService,
               private formBuilder: FormBuilder) { }
 
@@ -31,9 +31,10 @@ export class AssignmentCreateComponent implements OnInit {
   onSubmit() {
     if (this.assignmentForm.get('completed').value == '')
        this.assignmentForm.patchValue({'completed': false});
-    
+
     console.log(this.assignmentForm.value);
     this.assignmentService.createAssignment(this.assignmentForm.value);
+    //TODO Emit Event
 
     this.submitted = true;
   }
