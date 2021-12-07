@@ -7,26 +7,26 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Name</span>
         </div>
-        <input class="form-control" [ngModel]="assignment.name" name="name" #name=ngModel disabled />
+        <input class="form-control" [ngModel]="assignment?.name" name="name" #name=ngModel disabled />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Course</span>
         </div>
-        <input class="form-control" value="{{ assignment.course}}" disabled />
+        <input class="form-control" [ngModel]="assignment?.course" name="course" disabled />
 
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Due Date</span>
         </div>
-        <input class="form-control" value="{{ assignment.dueDate}}" disabled />
+        <input class="form-control" [ngModel]="assignment?.dueDate" name="dueDate" disabled />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Notes</span>
         </div>
-        <textarea class="form-control" disabled>{{ assignment.notes }}</textarea>
+        <textarea class="form-control" [ngModel]="assignment?.notes" name="notes" disabled></textarea>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -34,7 +34,7 @@
         </div>
         <div class="input-group-prepend">
             <div class="input-group-text">
-                <input type="checkbox" [checked]="assignment.completed" disabled>
+                <input type="checkbox" [ngModel]="assignment?.completed" name="completed" disabled>
             </div>
         </div>
     </div>

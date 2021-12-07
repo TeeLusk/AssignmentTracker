@@ -28,25 +28,12 @@ export class AssignmentDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           let id = params['id'];
-          // if (!id) {
-          //   this.editMode = false;
-          //   return;
-          // }
           this.assignmentService.getAssignment(id).subscribe(
             (result => {
               this.assignment = result
             })
           );
-
-          console.log(this.assignment);
-          // this.assignmentService.assignmentChangedEvent.next(this.assignment.slice())
-          // if (!this.originalAssignment) {
-          //   return;
-          // }
-          // this.editMode = true;
-          // this.assignment = JSON.parse(JSON.stringify(this.originalAssignment));
-        }
-      )
+        });
   }
 
   onSubmit(form: NgForm) {
