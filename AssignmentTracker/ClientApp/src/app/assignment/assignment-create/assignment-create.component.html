@@ -1,32 +1,32 @@
 <h3>New Assignment</h3>
 
-<form>
+<form [formGroup]="assignmentForm" (ngSubmit)="onSubmit()">
 
     <div class="text-danger"></div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Name</span>
         </div>
-        <input class="form-control" value="{{ assignment.name}}" />
+        <input class="form-control" id="name" formControlName="name" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Course</span>
         </div>
-        <input class="form-control" value="{{ assignment.course}}" />
+        <input class="form-control" id="course" formControlName="course" />
 
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Due Date</span>
         </div>
-        <input class="form-control" value="{{ assignment.dueDate}}" />
+        <input class="form-control" id="dueDate" formControlName="dueDate" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Notes</span>
         </div>
-        <textarea class="form-control">{{ assignment.notes }}</textarea>
+        <textarea class="form-control" id="notes" formControlName="notes"></textarea>
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -34,11 +34,11 @@
         </div>
         <div class="input-group-prepend">
             <div class="input-group-text">
-                <input type="checkbox" [checked]="assignment.completed">
+                <input type="checkbox" id="completed" formControlName="completed">
             </div>
         </div>
     </div>
-
-    <button type="button" class="btn btn-success" form="submit" [routerLink]="[assignment.assignmentId, '/edit']">Create</button>
+    
+    <button type="button" class="btn btn-success" type="submit" [disabled]="!assignmentForm.valid">Create</button>
 
 </form>

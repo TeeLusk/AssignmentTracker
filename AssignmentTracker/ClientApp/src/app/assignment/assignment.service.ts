@@ -20,6 +20,7 @@ export class AssignmentService {
   constructor(private http: HttpClient) {
 
   }
+  
   getAssignments() {
     return this.http.get<Assignment[]>(this.url)
       .subscribe(
