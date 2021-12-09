@@ -8,10 +8,10 @@ export class Assignment {
     completed: boolean;
 
     constructor() {
-      this.name = '';
-      this.course = '';
-      this.notes = '';
-      this.dueDate = '';
+      this.name = null;
+      this.course = null;
+      this.notes = null;
+      this.dueDate = null;
       this.completed = false;
     }
   }

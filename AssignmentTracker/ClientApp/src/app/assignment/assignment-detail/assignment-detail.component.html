@@ -20,7 +20,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Due Date</span>
         </div>
-        <input class="form-control" [ngModel]="assignment?.dueDate" name="dueDate" [disabled]="!editMode" />
+        <input class="form-control" type="date" [ngModel]="assignment?.dueDate" name="dueDate" [disabled]="!editMode" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -35,15 +35,13 @@
         <div class="input-group-prepend">
             <div class="input-group-text">
                 <input type="checkbox" [ngModel]="assignment?.completed" name="completed" [disabled]="!editMode">
-                <span>{{this.editMode}}</span>
             </div>
         </div>
     </div>
 
+    <div class="btn-group" role="group" aria-label="Options">
+      <button type="submit" class="btn btn-success" [hidden]="!editMode">Update Assignment</button>
+      <button type="button" class="btn btn-warning" (click)=toggleEdit() >Edit</button>
+      <button type="button" class="btn btn-danger" (click)="onDelete()" [hidden]="!editMode">Delete</button>
+    </div>
 </form>
-
-<div class="btn-group" role="group" aria-label="Options">
-  <button type="button" class="btn btn-warning" (click)=toggleEdit() [hidden]="!editMode">Edit</button>
-
-  <button type="button" class="btn btn-danger">Delete</button>
-</div>

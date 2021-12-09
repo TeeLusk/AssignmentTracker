@@ -12,7 +12,8 @@ export class AssignmentService {
   public assignments: Assignment[];
   public assignment: Assignment;
 
-  public url: string = 'https://localhost:5001/api/assignments';
+  // public url: string = 'https://localhost:5001/api/assignments';
+  public url: string = 'https://localhost:44314/api/assignments';
 
   assignmentListChangedEvent = new Subject<Assignment[]>();
   assignmentChangedEvent = new Subject<Assignment>();
@@ -35,12 +36,6 @@ export class AssignmentService {
 
   getAssignment(id: string) {
     return this.http.get<Assignment>(`${this.url}/${id}`);
-      // .subscribe(
-      //   result => {
-      //     this.assignment = result;
-      //     this.assignmentChangedEvent.next(this.assignment);
-      //     // console.log(result);
-      //   }, err => console.error(err));
   }
 
   createAssignment(assignment: Assignment) {
@@ -52,19 +47,12 @@ export class AssignmentService {
   }
 
   updateAssignment(assignment: Assignment) {
-    return this.http.put<Assignment>(this.url, assignment)
-      .subscribe(
-        result => {
-          console.log(result);
-        }, err => console.error(err));
+    // this.assignmentChangedEvent.next(this.assignment);
+    return this.http.put<Assignment>(`${this.url}/${assignment.assignmentId}`, assignment);
   }
 
   deleteAssignment(id: number) {
-    return this.http.delete('${this.url}/${id}')
-      .subscribe(
-        result => {
-          console.log(result);
-        }, err => console.error(err));
+    return this.http.delete(`${this.url}/${id}`);
   }
 
 

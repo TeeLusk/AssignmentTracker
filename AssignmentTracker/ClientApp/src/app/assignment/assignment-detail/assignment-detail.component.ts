@@ -12,10 +12,9 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./assignment-detail.component.css']
 })
 export class AssignmentDetailComponent implements OnInit {
-  // @Input() assignment: Assignment;
-  originalAssignment;
-  assignment;
+  assignment = new Assignment;
   editMode: boolean = false;
+
   private subscription: Subscription;
 
 
@@ -28,20 +27,32 @@ export class AssignmentDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           let id = params['id'];
-          this.assignmentService.getAssignment(id).subscribe(
+          this.subscription = this.assignmentService.getAssignment(id).subscribe(
             (result => {
-              this.assignment = result
-            })
-          );
+              this.assignment = result;
+            }));
         });
   }
-
-  onSubmit(form: NgForm) {
-
-  }
-
+  
   toggleEdit() {
     this.editMode = !this.editMode;
   }
+
+  onDelete() {
+    this.subscription = this.assignmentService.deleteAssignment(this.assignment.assignmentId).subscribe();
+
+    this.router.navigate(['/assignments']);
+  }
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+    console.log(this.assignment);
+    this.subscription = this.assignmentService.updateAssignment(this.assignment).subscribe(
+      (result => {
+        this.assignment = result;
+      })
+    );
+  }
+
 
 }

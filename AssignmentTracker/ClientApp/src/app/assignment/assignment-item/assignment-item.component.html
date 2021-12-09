@@ -5,5 +5,13 @@
         <p class="card-subtitle mb-2 text-muted">{{ assignment.course }}</p>
         <p class="card-subtitle mb-2 text-muted">Due: {{ assignment.dueDate | date }}</p>
         <p class="card-text mb-2">{{ assignment.notes }}</p>
+        <!-- <div class="row">
+            <p>Completed:  </p>
+            <input type="checkbox" [checked]="assignment.completed"/>
+        </div> -->
+        <label class="form-control">
+            Completed:
+            <input type="checkbox" name="completed" [ngModel]="assignment.completed" />
+          </label>
     </div>
 </div>

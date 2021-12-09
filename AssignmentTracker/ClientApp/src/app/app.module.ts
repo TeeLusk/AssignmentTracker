@@ -33,7 +33,6 @@ import { AssignmentCreateComponent } from './assignment/assignment-create/assign
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'assignments', component: AssignmentListComponent, children: [
         { path: 'new-assignment', component: AssignmentCreateComponent},
-        { path: ':id/edit', component: AssignmentDetailComponent},
         { path: ':id', component: AssignmentDetailComponent},
       ]}
     ])

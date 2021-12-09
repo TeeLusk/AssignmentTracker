@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { AssignmentService } from './assignment.service';
@@ -12,7 +12,6 @@ import { Assignment } from '../models/assignment.model';
 export class AssignmentListComponent implements OnInit {
 
   private subscription: Subscription;
-
   assignments: Assignment[];
 
   constructor(private assignmentService: AssignmentService) {
@@ -21,10 +20,9 @@ export class AssignmentListComponent implements OnInit {
   ngOnInit() {
     this.subscription = this.assignmentService.assignmentListChangedEvent
       .subscribe(
-      (assignments : Assignment[]) => {
-        this.assignments = assignments;
-      });
-      this.assignmentService.getAssignments();
+        (assignments: Assignment[]) => {
+          this.assignments = assignments;
+        });
+    this.assignmentService.getAssignments();
   }
-
 }

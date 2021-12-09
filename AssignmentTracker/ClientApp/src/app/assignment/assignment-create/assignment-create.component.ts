@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Assignment } from 'src/app/models/assignment.model';
 import { AssignmentService } from '../assignment.service';
@@ -23,7 +24,8 @@ export class AssignmentCreateComponent implements OnInit {
   });
 
   constructor(private assignmentService: AssignmentService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -37,6 +39,8 @@ export class AssignmentCreateComponent implements OnInit {
     //TODO Emit Event
 
     this.submitted = true;
+
+    this.router.navigate(['/assignments']);
   }
 
 }
