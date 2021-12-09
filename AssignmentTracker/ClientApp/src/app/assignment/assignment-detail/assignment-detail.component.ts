@@ -45,13 +45,22 @@ export class AssignmentDetailComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
-    console.log(this.assignment);
+    // console.log(form.value);
+    // console.log(this.assignment);
+
+    this.assignment.name = form.value.name;
+    this.assignment.course = form.value.course;
+    this.assignment.dueDate = form.value.dueDate;
+    this.assignment.notes = form.value.notes;
+    this.assignment.completed = form.value.completed;
+
     this.subscription = this.assignmentService.updateAssignment(this.assignment).subscribe(
       (result => {
         this.assignment = result;
       })
     );
+
+    this.router.navigate(['/assignments']);
   }
 
 

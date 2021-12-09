@@ -9,9 +9,11 @@ import { Assignment } from 'src/app/models/assignment.model';
 })
 export class AssignmentItemComponent implements OnInit {
   @Input() assignment: Assignment;
+  
 
   constructor() { }
 
   ngOnInit() {
+    this.assignment.dueDate = new Date(this.assignment.dueDate).toLocaleDateString();
   }
 }

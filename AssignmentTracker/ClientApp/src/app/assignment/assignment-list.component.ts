@@ -25,4 +25,8 @@ export class AssignmentListComponent implements OnInit {
         });
     this.assignmentService.getAssignments();
   }
+  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

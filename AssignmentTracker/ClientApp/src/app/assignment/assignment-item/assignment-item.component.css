@@ -9,7 +9,7 @@
 }
 
 input[type="checkbox"] {
-    appearance: none;
+    /* appearance: none; */
     background-color: #fff;
     margin: 0;
     font: inherit;

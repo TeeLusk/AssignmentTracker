@@ -3,7 +3,7 @@
     <div class="card-body">
         <p class="card-title mb-2 text-primary">{{ assignment.name }}</p>
         <p class="card-subtitle mb-2 text-muted">{{ assignment.course }}</p>
-        <p class="card-subtitle mb-2 text-muted">Due: {{ assignment.dueDate | date }}</p>
+        <p class="card-subtitle mb-2 text-muted">Due: {{ assignment.dueDate | date:'yyyy-MM-dd' }}</p>
         <p class="card-text mb-2">{{ assignment.notes }}</p>
         <!-- <div class="row">
             <p>Completed:  </p>
