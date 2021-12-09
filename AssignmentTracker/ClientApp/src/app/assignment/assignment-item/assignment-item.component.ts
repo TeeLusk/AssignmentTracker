@@ -14,6 +14,5 @@ export class AssignmentItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.assignment.dueDate = new Date(this.assignment.dueDate).toLocaleDateString();
   }
 }

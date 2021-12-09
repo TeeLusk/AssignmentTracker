@@ -45,9 +45,6 @@ export class AssignmentDetailComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    // console.log(form.value);
-    // console.log(this.assignment);
-
     this.assignment.name = form.value.name;
     this.assignment.course = form.value.course;
     this.assignment.dueDate = form.value.dueDate;

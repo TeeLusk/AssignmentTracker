@@ -33,9 +33,6 @@ export class AssignmentService {
         result => {
           this.assignments = result;
           this.sortAndSend();
-          // Return the same list, but sorted by date
-          // this.assignmentListChangedEvent.next(this.assignments.slice().sort((a, b) => b.dueDate - a.dueDate));
-          // console.log(result);
         }, err => console.error(err));
   }
 

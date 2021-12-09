@@ -4,7 +4,7 @@ export class Assignment {
     name: string;
     course: string;
     notes: string;
-    dueDate: string;
+    dueDate: Date;
     completed: boolean;
 
     constructor() {

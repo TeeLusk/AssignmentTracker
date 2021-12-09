@@ -20,7 +20,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Due Date</span>
         </div>
-        <input class="form-control" type="date" [ngModel]="assignment?.dueDate" name="dueDate" [disabled]="!editMode" />
+        <input class="form-control" type="date" [ngModel]="assignment?.dueDate | date:'yyy-MM-dd'" name="dueDate" [disabled]="!editMode" />
     </div>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
