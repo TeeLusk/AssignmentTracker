@@ -1,14 +1,20 @@
 <div class="card border-primary" style="width: 18rem;" *ngIf="assignment" style="cursor: pointer;"
     [routerLink]="[assignment.assignmentId]" routerLinkActive="active">
     <div class="card-body">
-        <p class="card-title mb-2 text-primary">{{ assignment.name }}</p>
-        <p class="card-subtitle mb-2 text-muted">{{ assignment.course }}</p>
-        <p class="card-subtitle mb-2 text-muted">Due: {{ assignment.dueDate | date:'yyyy-MM-dd' }}</p>
-        <p class="card-text mb-2">{{ assignment.notes }}</p>
-<!--        <label>-->
-<!--            Completed:-->
-<!--            <input type="checkbox" name="completed" [ngModel]="assignment.completed" onclick="return false"/>-->
-<!--          </label>-->
-      <img [src]="assignment.completed ? '/assets/images/check.png': '/assets/images/unchecked.png'" style="height: 35px; float: right;">
+        <div class="row">
+            <div class="col-8">
+                <p class="card-title mb-2 text-primary">{{ assignment.name }}</p>
+                <p class="card-subtitle mb-2 text-muted">{{ assignment.course }}</p>
+                <p class="card-subtitle mb-2 text-muted">Due: {{ assignment.dueDate | date:'yyyy-MM-dd' }}</p>
+                <p class="card-text mb-2">{{ assignment.notes }}</p>
+            </div>
+            <div class="col">
+                <img [src]="assignment.completed ? '/assets/images/check.png': '/assets/images/unchecked.png'" style="height: 35px; float: right;">
+            </div>
+            <!--        <label>-->
+                <!--            Completed:-->
+                <!--            <input type="checkbox" name="completed" [ngModel]="assignment.completed" onclick="return false"/>-->
+                <!--          </label>-->
+            </div>
     </div>
 </div>

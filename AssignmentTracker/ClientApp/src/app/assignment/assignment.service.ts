@@ -12,8 +12,8 @@ export class AssignmentService {
   public assignments: Assignment[];
   public assignment: Assignment;
 
-  public url: string = 'https://localhost:5001/api/assignments';
-  // public url: string = 'https://localhost:44314/api/assignments';
+  // public url: string = 'https://localhost:5001/api/assignments';
+  public url: string = 'https://localhost:44314/api/assignments';
 
   assignmentListChangedEvent = new Subject<Assignment[]>();
   assignmentChangedEvent = new Subject<Assignment>();
